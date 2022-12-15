@@ -4,6 +4,7 @@ import '../styles/global.css'
 
 export default function Layout({ children }) {
   return (
+    //Se över className och styling på overhaul
     <div className='layout'>
         <Header />
         <div className="content">

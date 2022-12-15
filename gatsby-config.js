@@ -16,8 +16,6 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        // accessToken: 'XzTNw29urA9RYnOjsbyfhmw_XnwoqlU6Z7_7C3Djv1s',
-        // spaceId: '2l0dh1o462z7',
       },
     },
     'gatsby-plugin-image',
