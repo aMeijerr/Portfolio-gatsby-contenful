@@ -7,7 +7,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `shop-gatsby`,
+    title: `SHOPINATION`,
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [

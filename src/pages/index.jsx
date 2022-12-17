@@ -8,9 +8,8 @@ const IndexPage = () => {
     <Layout>
     <section className={styles.header}>
       <div>
-        <h2>Design</h2>
-        <h3>Develop & Deploy</h3>
-        <p>Web developer in training</p>
+        <h2>Shop</h2>
+        <h3>Spend & Regret</h3>
         <Link className={styles.btn} to="/products">My Products</Link>
       </div>
     </section>

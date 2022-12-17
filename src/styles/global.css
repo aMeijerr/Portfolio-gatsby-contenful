@@ -27,6 +27,7 @@ p {
 .layout {
     max-width: 1200px;
     margin: 0 auto;
+    overflow: hidden;
   }
   nav {
     display: grid;
@@ -52,3 +53,10 @@ p {
     color: #bbb;
     margin: 40px auto;
   }
+
+.content {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  /* padding-right: 20px; */
+}

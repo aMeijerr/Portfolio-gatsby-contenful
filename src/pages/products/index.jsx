@@ -3,8 +3,14 @@ import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Layout from '../../components/Layout'
 import * as styles from '../../styles/products.module.css'
+import { useMediaQuery } from 'react-responsive'
+import { DeviceSize } from '../../components/responsive'
 
 export default function Products({ data }) {
+  const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
+
+  //använda styled-components här också för responsivitet?
+
   return (
     <Layout>
       <h2>Products</h2>
@@ -15,16 +21,11 @@ export default function Products({ data }) {
               const slug = node.slug;
               const image = getImage(node.productImage);
               return (
-                  <div className={styles.product__card}>
-                    
+                  <div className={styles.product__card} key={node.title}>
                       <GatsbyImage image={image} alt={node.title}/>
-                   
-                    {/* <div className={styles.product__image}>
-                      <img src={node.productImage.resize.src} alt={node.title}/>
-                    </div> */}
-                        <Link to={"/product/" + slug}><h2>{node.title}</h2></Link>
-                        <p>{node.description.description}</p>
-                        <p>{node.price} SEK</p>
+                      <Link to={"/product/" + slug}><h2>{node.title}</h2></Link>
+                      <p>{node.description.description}</p>
+                      <p>{node.price} SEK</p>
                   </div>
               )
           })}
