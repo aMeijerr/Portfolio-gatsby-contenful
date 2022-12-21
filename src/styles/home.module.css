@@ -1,15 +1,27 @@
-.header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 40px;
+.landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+    background-image: url('../images/hero.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
-.header h2 {
+.landing__name {
+  color: #FB8500;
+}
+
+.landing__content {
+    text-align: center;
+  }
+
+.landing h2 {
     font-size: 4em;
   }
 
-.header h3 {
+.landing h3 {
     font-size: 3em;
     font-weight: 400;
     margin-bottom: 20px;
@@ -17,9 +29,17 @@
 
 .btn {
     display: inline-block;
-    background: #D42990;
     padding: 10px 16px;
+    color: #FB8500;
+    border: 1px solid white;
     border-radius: 10px;
     margin-top: 20px;
     font-weight: 500;
+    transition: all 0.2s ease-in-out;
+  }
+
+.btn:hover {
+    border: transparent;
+    background: #FB8500;
+    color: #001d2c;
   }

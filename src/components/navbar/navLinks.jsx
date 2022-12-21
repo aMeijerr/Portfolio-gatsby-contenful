@@ -29,15 +29,9 @@ const LinkItem = styled.li`
   border-top: 2px solid transparent;
   transition: all 220ms ease-in-out;
   &:hover {
-    border-top: 2px solid #a8dadc;
+    border-top: 4px solid #FB8500;
   }
 `;
-
-// const Link = styled.a`
-//   text-decoration: none;
-//   color: inherit;
-//   font-size: inherit;
-// `;
 
 export function NavLinks(props) {
   return (
@@ -47,16 +41,10 @@ export function NavLinks(props) {
           <Link to="/">Home</Link>
         </LinkItem>
         <LinkItem>
-          <Link to="/products">Products</Link>
+          <Link to="/projects">Projects</Link>
         </LinkItem>
         <LinkItem>
-          <Link to="/about">About us</Link>
-        </LinkItem>
-        <LinkItem>
-          <Link to="/team">The team</Link>
-        </LinkItem>
-        <LinkItem>
-          <Link to="/policy">Our policy</Link>
+          <Link to="/about">About me</Link>
         </LinkItem>
         <LinkItem>
           <Link to="/contact">Contact</Link>

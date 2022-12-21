@@ -3,6 +3,7 @@ import styled from "styled-components";
 // import { Accessibility } from "./accessibility";
 import { MenuToggle } from "./menuToggle";
 import { Link } from "gatsby";
+import Logo from "../../images/Logo3.png";
 
 const NavLinksContainer = styled.div`
   height: 100%;
@@ -18,14 +19,12 @@ const LinksWrapper = styled.ul`
   display: flex;
   height: 100%;
   list-style: none;
-  background: radial-gradient(at top left, #1b263b 0%, #0d1b2a 100%);
+  background: #001D2C;
   width: 100%;
   flex-direction: column;
   position: fixed;
   top: 0;
-  left: 65px;
-  border-left: 2px solid #a8dadc;
-  opacity: 0.99;
+  left: 0;
 `;
 
 const LinkItem = styled.li`
@@ -36,6 +35,16 @@ const LinkItem = styled.li`
   font-size: 24px;
   display: flex;
   margin-bottom: 10px;
+  border-left: 2px solid transparent;
+  transition: all 220ms ease-in-out;
+  &:hover {
+    border-left: 4px solid #FB8500;
+`;
+
+const LogoPlacement = styled.div`
+  position: fixed;
+  bottom: 45px;
+  right: 45px;
 `;
 
 export function MobileNavLinks(props) {
@@ -50,20 +59,17 @@ export function MobileNavLinks(props) {
                 <Link to="/">Home</Link>
             </LinkItem>
             <LinkItem>
-                <Link to="/products">Products</Link>
+                <Link to="/projects">Projects</Link>
             </LinkItem>
             <LinkItem>
-                <Link to="/about">About us</Link>
-            </LinkItem>
-            <LinkItem>
-                <Link to="/team">The team</Link>
-            </LinkItem>
-            <LinkItem>
-                <Link to="/policy">Our policy</Link>
+                <Link to="/about">About me</Link>
             </LinkItem>
             <LinkItem>
                 <Link to="/contact">Contact</Link>
             </LinkItem>
+            <LogoPlacement>
+              <img className="site-logo" src={Logo} alt="Site logo" />
+            </LogoPlacement>
         </LinksWrapper>
       )}
     </NavLinksContainer>

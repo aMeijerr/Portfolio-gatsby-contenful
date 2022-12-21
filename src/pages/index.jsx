@@ -1,22 +1,31 @@
 import { Link } from "gatsby"
 import * as React from "react"
-import Layout from "../components/Layout"
 import * as styles from '../styles/home.module.css'
+// import { useStaticQuery, graphql } from "gatsby"
 
 const IndexPage = () => {
+  // const data = useStaticQuery(graphql`
+  //       query SiteInfo {
+  //           site {
+  //               siteMetadata {
+  //                   title
+  //               }
+  //           }
+  //       }
+  //   `)
+  //   const { title } = data.site.siteMetadata;
   return (
-    <Layout>
-    <section className={styles.header}>
-      <div>
-        <h2>Shop</h2>
-        <h3>Spend & Regret</h3>
-        <Link className={styles.btn} to="/products">My Products</Link>
+    <section className={styles.landing}>
+      <div className={styles.landing__content}>
+        {/* <h1>{title}</h1> */}
+        <h2>I'm <span className={styles.landing__name}>Alex Meijer</span></h2>
+        <h3>Student in Front-end developing</h3>
+        <Link className={styles.btn} to="/projects">Show projects</Link>
       </div>
     </section>
-    </Layout>
   )
 }
 
 export default IndexPage
 
-export const Head = () => <title>Shopi</title>
+export const Head = () => <title>Alex Meijer Web Development</title>

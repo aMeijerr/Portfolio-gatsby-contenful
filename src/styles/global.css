@@ -10,11 +10,11 @@
 
 html, body {
   min-height: 100%;
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 
 body {
-  background: radial-gradient(at top left, #1b263b 0%, #0d1b2a 100%);
+  background: #001D2C;
   background-repeat: no-repeat;
 }
 
@@ -59,4 +59,9 @@ p {
   width: 100%;
   overflow: auto;
   /* padding-right: 20px; */
+}
+
+.site-logo {
+  height: 80px;
+  width: 80px;
 }

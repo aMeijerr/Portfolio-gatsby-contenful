@@ -5,15 +5,15 @@ import styled from "styled-components";
 import { NavLinks } from "./navLinks";
 import { DeviceSize } from "../responsive";
 import { MobileNavLinks } from "./mobileNavLinks";
-import { graphql, useStaticQuery } from "gatsby";
+// import { graphql, useStaticQuery } from "gatsby";
+import Logo from "../../images/Logo3.png";
 
 const NavbarContainer = styled.div`
   width: 100%;
-  height: 60px;
+  height: 80px;
   box-shadow: 0 1px 3px rgba(15, 15, 15, 0.13);
   display: flex;
   align-items: center;
-  padding: 0 1.5em;
 `;
 
 const LeftSection = styled.div`
@@ -32,22 +32,22 @@ const RightSection = styled.div`
 `;
 
 const Navbar = (props) => {
-    const data = useStaticQuery(graphql`
-        query SiteInfo {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `)
-    const { title } = data.site.siteMetadata;
+    // const data = useStaticQuery(graphql`
+    //     query SiteInfo {
+    //         site {
+    //             siteMetadata {
+    //                 title
+    //             }
+    //         }
+    //     }
+    // `)
+    // const { title } = data.site.siteMetadata;
     const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
 
   return (
     <NavbarContainer>
       <LeftSection>
-        <h2>{ title }</h2>
+        <img className="site-logo" src={Logo} alt="Site logo" />
       </LeftSection>
       <MiddleSection>{!isMobile && <NavLinks />}</MiddleSection>
       <RightSection>
