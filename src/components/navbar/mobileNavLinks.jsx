@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-// import { Accessibility } from "./accessibility";
 import { MenuToggle } from "./menuToggle";
 import { Link } from "gatsby";
 import Logo from "../../images/Logo3.png";

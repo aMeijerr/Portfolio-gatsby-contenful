@@ -1,7 +1,6 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
-// import { Accessibility } from "./accessibility";
 import { NavLinks } from "./navLinks";
 import { DeviceSize } from "../responsive";
 import { MobileNavLinks } from "./mobileNavLinks";
@@ -49,9 +48,10 @@ const Navbar = (props) => {
       <LeftSection>
         <img className="site-logo" src={Logo} alt="Site logo" />
       </LeftSection>
-      <MiddleSection>{!isMobile && <NavLinks />}</MiddleSection>
+      <MiddleSection>
+        {!isMobile && <NavLinks />}
+      </MiddleSection>
       <RightSection>
-        {/* {!isMobile && <Accessibility />} */}
         {isMobile && <MobileNavLinks />}
       </RightSection>
     </NavbarContainer>

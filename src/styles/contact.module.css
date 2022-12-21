@@ -1,0 +1,39 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+.contact__name {
+  color: #FB8500;
+}
+
+.contact__content {
+    text-align: center;
+  }
+
+.contact h1 {
+    font-size: 2em;
+    color: #FB8500;
+    margin-bottom: 1em;
+}
+
+.contact p {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-bottom: 1em;
+}
+
+.contact h2 {
+    font-size: 4em;
+    color: #FB8500;
+    margin-bottom: 1em;
+}
+
+.contact h3 {
+    font-size: 3em;
+    font-weight: 400;
+    margin-bottom: 1em;
+}

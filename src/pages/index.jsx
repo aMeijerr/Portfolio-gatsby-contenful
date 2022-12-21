@@ -19,7 +19,7 @@ const IndexPage = () => {
       <div className={styles.landing__content}>
         {/* <h1>{title}</h1> */}
         <h2>I'm <span className={styles.landing__name}>Alex Meijer</span></h2>
-        <h3>Student in Front-end developing</h3>
+        <h3>Student in Front-end development</h3>
         <Link className={styles.btn} to="/projects">Show projects</Link>
       </div>
     </section>
