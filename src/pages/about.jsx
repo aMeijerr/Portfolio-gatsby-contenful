@@ -6,8 +6,7 @@ import * as styles from "../styles/about.module.css";
 export default function AboutPage({data}) {
     return (
     <Layout>
-      <div>
-          
+      <section>
           {data.allContentfulAboutUs.edges.map(({ node }) => {
               return (
                   <div className={styles.about__container}>
@@ -16,7 +15,7 @@ export default function AboutPage({data}) {
                   </div>
               )
           })}
-      </div>
+      </section>
     </Layout>
   )
 }
