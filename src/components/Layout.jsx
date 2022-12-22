@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/global.css'
 import Navbar from './navbar/index'
+import Footer from './footer/index'
 
 export default function Layout({ children }) {
   return (
@@ -10,9 +11,7 @@ export default function Layout({ children }) {
         <div className="content">
             { children }
         </div>
-        <footer>
-            <p>2022 - Alex Meijer</p>
-        </footer>
+        <Footer />
     </div>
   )
 }

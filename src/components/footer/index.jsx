@@ -1,0 +1,61 @@
+import React from "react";
+import styled from "styled-components";
+import { Link } from "gatsby";
+import facebook from "../../assets/facebook.svg";
+import instagram from "../../assets/instagram.svg";
+import github from "../../assets/github.svg";
+import linkedin from "../../assets/linkedin.svg";
+
+const FooterLinksContainer = styled.div`
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const LinksWrapper = styled.ul`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+`;
+
+const LinkItem = styled.li`
+  padding: 1em;
+  color: #white;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-bottom: 2px solid transparent;
+  transition: all 220ms ease-in-out;
+  &:hover {
+    border-bottom: 4px solid #FB8500;
+  }
+`;
+  
+const Footer = () => {
+    return (
+        <FooterLinksContainer>
+          <LinksWrapper>
+            <LinkItem>
+              <Link to="/"><img src={facebook} alt="facebook-link" width="40" height="40"/></Link>
+            </LinkItem>
+            <LinkItem>
+              <Link to="/projects"><img src={instagram} alt="instagram-link" width="40" height="40"/></Link>
+            </LinkItem>
+            <LinkItem>
+              <Link to="/about"><img src={github} alt="github-link" width="40" height="40"/></Link>
+            </LinkItem>
+            <LinkItem>
+              <Link to="/contact"><img src={linkedin} alt="linkedin-link" width="40" height="40"/></Link>
+            </LinkItem>
+          </LinksWrapper>
+        </FooterLinksContainer>
+      );
+    }
+
+export default Footer;
