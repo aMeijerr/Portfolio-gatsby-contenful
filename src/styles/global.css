@@ -23,6 +23,12 @@ p {
   line-height: 1.5em;
 }
 
+hr {
+  width: 70%;
+  border: 2px solid #FB8500;
+  margin: 1rem 0 1rem 0;
+}
+
 /* layout & nav */
 .layout {
     max-width: 1200px;

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { NavLinks } from "./navLinks";
 import { DeviceSize } from "../responsive";
 import { MobileNavLinks } from "./mobileNavLinks";
+import { Link } from "gatsby";
 // import { graphql, useStaticQuery } from "gatsby";
 import Logo from "../../images/Logo3.png";
 
@@ -46,7 +47,9 @@ const Navbar = (props) => {
   return (
     <NavbarContainer>
       <LeftSection>
-        <img className="site-logo" src={Logo} alt="Site logo" />
+        <Link to="/">
+          <img className="site-logo" src={Logo} alt="Site logo" />
+        </Link>
       </LeftSection>
       <MiddleSection>
         {!isMobile && <NavLinks />}

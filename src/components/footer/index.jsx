@@ -42,16 +42,16 @@ const Footer = () => {
         <FooterLinksContainer>
           <LinksWrapper>
             <LinkItem>
-              <Link to="/"><img src={facebook} alt="facebook-link" width="40" height="40"/></Link>
+              <Link to="https://dif.se/"><img src={facebook} alt="facebook-link" width="40" height="40"/></Link>
             </LinkItem>
             <LinkItem>
-              <Link to="/projects"><img src={instagram} alt="instagram-link" width="40" height="40"/></Link>
+              <Link to="https://dif.se/"><img src={instagram} alt="instagram-link" width="40" height="40"/></Link>
             </LinkItem>
             <LinkItem>
-              <Link to="/about"><img src={github} alt="github-link" width="40" height="40"/></Link>
+              <Link to="https://dif.se/"><img src={github} alt="github-link" width="40" height="40"/></Link>
             </LinkItem>
             <LinkItem>
-              <Link to="/contact"><img src={linkedin} alt="linkedin-link" width="40" height="40"/></Link>
+              <Link to="https://dif.se/"><img src={linkedin} alt="linkedin-link" width="40" height="40"/></Link>
             </LinkItem>
           </LinksWrapper>
         </FooterLinksContainer>

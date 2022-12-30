@@ -1,7 +1,7 @@
 exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     query getAllSlugs {
-      allContentfulProduct {
+      allContentfulProjects {
         edges {
           node {
             slug
@@ -11,11 +11,11 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  data.allContentfulProduct.edges.forEach((edge) => {
+  data.allContentfulProjects.edges.forEach((edge) => {
     const slug = edge.node.slug;
     actions.createPage({
-      path: '/product/' + slug,
-      component: require.resolve(`./src/templates/single-product.jsx`),
+      path: '/project/' + slug,
+      component: require.resolve(`./src/templates/single-project.jsx`),
       context: { slug: slug },
     });
   });

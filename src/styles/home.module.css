@@ -4,9 +4,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('../images/hero.svg');
+    /* background-image: url('../images/hero.svg');
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
   }
 
 .landing__name {
