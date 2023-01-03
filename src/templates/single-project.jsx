@@ -64,9 +64,8 @@ const SingleProjectPage = ({ data }) => {
 
 export default SingleProjectPage;
 
-export const Head = () => <title>Dynamiskt</title>;
+export const Head = () => <title>Alex webdev</title>;
 
-//Se över denna, finns ännu ingen slug i contentful
 export const query = graphql`
   query SingleProjectPageQuery($slug: String) {
   contentfulProjects(slug: { eq: $slug }) {
@@ -74,6 +73,7 @@ export const query = graphql`
     slug
     description
     projectImages {
+      title
       gatsbyImageData(
             height: 450
             resizingBehavior: PAD

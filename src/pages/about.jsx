@@ -27,10 +27,16 @@ export default function AboutPage() {
             return (
                 <div className={styles.about__container}>
                     <h2>{title}</h2>
-                    <p>{description}</p>
-                    <GatsbyImage image={profileImage} alt={node.title}/>
-                    <p>{renderRichText(education, options)}</p>
-                    <p>{renderRichText(experience, options)}</p>
+                    <hr />
+                    <h1>Alex Meijer</h1>
+                    <article className={styles.profile__info}>
+                      <GatsbyImage image={profileImage} alt={node.title}/>
+                      <p>{description}</p>
+                    </article>
+                    <section className={styles.education}>
+                      <p>{renderRichText(education, options)}</p>
+                      <p>{renderRichText(experience, options)}</p>
+                    </section>
                 </div>
             )
         })}
@@ -48,10 +54,10 @@ query MyQuery {
         description
         profileImage {
           gatsbyImageData(
-            height: 450,
-            width: 450
-            resizingBehavior: FILL
+            height: 350
+            resizingBehavior: PAD
             placeholder: BLURRED
+            layout: FIXED
           )
         }
         education {

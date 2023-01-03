@@ -3,6 +3,33 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100%;
+    margin: 2rem;
+    padding: 2rem;
+}
+
+.education {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.education strong {
+    color: #FB8500;
+}
+
+.profile__info {
+    display: grid;
+    grid-auto-columns: min-content;
+    margin: 1rem;
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem; */
+}
+
+.about__container h2 {
+    font-size: 4em;
+    color: #FB8500;
 }
