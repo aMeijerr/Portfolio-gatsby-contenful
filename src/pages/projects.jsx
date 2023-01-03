@@ -3,8 +3,8 @@ import Layout from "../components/Layout";
 import { graphql, Link } from "gatsby";
 import * as styles from "../styles/projects.module.css";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const options = {
   renderMark: {
@@ -51,9 +51,9 @@ query ProjectsQuery {
             projectImages {
               gatsbyImageData(
                 height: 450
-                width: 450
-                resizingBehavior: FILL
+                resizingBehavior: PAD
                 placeholder: BLURRED
+                layout: FIXED
               )
             }
             link {

@@ -35,7 +35,7 @@ hr {
     margin: 0 auto;
     overflow: hidden;
   }
-  nav {
+  /* nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 40px auto;
@@ -58,7 +58,7 @@ hr {
     text-align: center;
     color: #bbb;
     margin: 40px auto;
-  }
+  } */
 
 .content {
   height: 100%;
