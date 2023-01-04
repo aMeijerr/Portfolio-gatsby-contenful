@@ -75,7 +75,8 @@ export const query = graphql`
     projectImages {
       title
       gatsbyImageData(
-            height: 450
+            height: 300
+            width: 400
             resizingBehavior: PAD
             placeholder: BLURRED
             layout: FIXED

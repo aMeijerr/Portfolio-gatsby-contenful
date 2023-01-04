@@ -25,7 +25,7 @@ export default function AboutPage() {
     <section>
         {data.allContentfulAboutMe.edges.map(({ node }) => {
             return (
-                <div className={styles.about__container}>
+                <div className={styles.about__container} key={node.title}>
                     <h2>{title}</h2>
                     <hr />
                     <h1>Alex Meijer</h1>
@@ -34,8 +34,8 @@ export default function AboutPage() {
                       <p>{description}</p>
                     </article>
                     <section className={styles.education}>
-                      <p>{renderRichText(education, options)}</p>
-                      <p>{renderRichText(experience, options)}</p>
+                      <span>{renderRichText(education, options)}</span>
+                      <span>{renderRichText(experience, options)}</span>
                     </section>
                 </div>
             )

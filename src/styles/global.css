@@ -23,6 +23,11 @@ p {
   line-height: 1.5em;
 }
 
+h2 {
+  font-size: 3rem;
+  color: #FB8500;
+}
+
 hr {
   width: 70%;
   border: 2px solid #FB8500;

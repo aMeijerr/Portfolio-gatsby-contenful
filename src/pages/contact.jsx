@@ -25,7 +25,7 @@ const ContactPage = ({ data }) => {
                     ) : (  
                         <div className={styles.contact__content}>
                             <h2>{node.title}</h2>
-                            <h3>{node.description}</h3>
+                            <p>{node.description}</p>
                             <h2>{node.email}</h2>
                         </div>
                     )
