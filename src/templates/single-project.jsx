@@ -38,6 +38,8 @@ const SingleProjectPage = ({ data }) => {
             <img src={css} alt="css-icon" width="40" height="40"/>
           </div>
 
+          <p>{project.description}</p>
+
           {isMobile ? (
             <div className={styles.img__mobile}>
                 {project.projectImages.map((img, i) => {
@@ -54,8 +56,6 @@ const SingleProjectPage = ({ data }) => {
             </div>
           )
           }
-          
-          <p>{project.description}</p>
           <h4>{renderRichText(project.link, options)}</h4>
         </main>
     </Layout>
