@@ -22,13 +22,13 @@ const IndexPage = () => {
     `)
     const bgImage = data.allContentfulBackgroundImage.edges[0].node.bgImage.file.url
   return (
-    <section className={styles.landing}>
-      <div className={styles.landing__content} 
+    <section className={styles.landing} 
       style={{
       backgroundImage: `url(${bgImage})`,
       backgroundRepeat: "no-repeat", 
       backgroundSize: "contain"
     }}>
+      <div className={styles.landing__content}>
         <h2>I'm <span className={styles.landing__name}>Alex Meijer</span></h2>
         <h3>Student in Front-end development</h3>
         <Link className={styles.btn} to="/projects">Show projects</Link>
