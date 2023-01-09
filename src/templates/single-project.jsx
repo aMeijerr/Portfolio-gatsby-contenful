@@ -7,9 +7,6 @@ import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { DeviceSize } from "../components/responsive";
 import { useMediaQuery } from "react-responsive";
-import vue from '../assets/vue.svg'
-import html from '../assets/html5.svg'
-import css from '../assets/css3.svg'
 
 const options = {
   renderMark: {
@@ -29,14 +26,22 @@ const SingleProjectPage = ({ data }) => {
         <main className={styles.single__container}>
           <h2>{project.title}</h2>
 
+
+          {/* //Rendrerar ut tech-ikoner dynamiskt efter contenfuls techstack */}
+          <ul>
+            {project.techStack.map((tech) => {
+              return <img src={require(`../assets/${tech}.svg`).default} alt="tech-icon" width="40" height="40"/>
+            })}
+          </ul>
+
           {/* Utkast på techikoner, måste lägga in kategorier i Contentful som sedan loopas över
           ungefär som bilderna. Behöver vara dynamiskt */}
-          <div className={styles.tech}>
+          {/* <div className={styles.tech}>
             <h4>Tech:</h4>
-            <img src={vue} alt="vue-icon" width="40" height="40"/>
-            <img src={html} alt="html-icon" width="40" height="40"/>
-            <img src={css} alt="css-icon" width="40" height="40"/>
-          </div>
+            <img src={Vue} alt="vue-icon" width="40" height="40"/>
+            <img src={HTML} alt="html-icon" width="40" height="40"/>
+            <img src={CSS} alt="css-icon" width="40" height="40"/>
+          </div> */}
 
           <p>{project.description}</p>
 
@@ -72,6 +77,7 @@ export const query = graphql`
     title
     slug
     description
+    techStack
     projectImages {
       title
       gatsbyImageData(

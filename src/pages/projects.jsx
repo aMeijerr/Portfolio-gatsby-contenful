@@ -57,7 +57,7 @@ const ProjectsPage = ({data}) => {
                             <hr />
                             <h2>{node.title}</h2>
                             <p>{node.tech.title}</p>
-                            {/* <p>{node.description}</p> */}
+                            <p>{node.description}</p>
                             <div className={styles.img__container}>
                               <GatsbyImage image={projectImage} alt={node.title}/>
                               {/* {node.projectImages.map((img, i) => {

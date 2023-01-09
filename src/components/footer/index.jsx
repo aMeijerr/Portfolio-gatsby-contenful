@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import facebook from "../../assets/facebook.svg";
-import instagram from "../../assets/instagram.svg";
-import github from "../../assets/github.svg";
-import linkedin from "../../assets/linkedin.svg";
+import facebook from "../../assets/Facebook.svg";
+import instagram from "../../assets/Instagram.svg";
+import github from "../../assets/Github.svg";
+import linkedin from "../../assets/LinkedIn.svg";
 
 const FooterLinksContainer = styled.div`
   width: 100%;
