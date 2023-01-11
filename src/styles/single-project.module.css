@@ -13,11 +13,11 @@
 } */
 
 .single__container p {
-    font-size: 2rem;
     text-align: center;
 }
 
 .single__container h4 a {
+    font-size: 2rem;
     color: #FB8500;
 }
 

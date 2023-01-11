@@ -19,7 +19,9 @@ body {
 }
 
 p {
+  /* width: 70%; */
   margin: 16px auto;
+  /* text-align: center; */
   line-height: 1.5em;
 }
 
@@ -39,36 +41,11 @@ hr {
     margin: 0 auto;
     overflow: hidden;
   }
-  /* nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 40px auto;
-  }
-  nav .links {
-    display: inline-block;
-    text-align: right;
-  }
-  nav a {
-    display: inline-block;
-    margin-left: 20px;
-    font-weight: 400;
-    padding-bottom: 8px;
-    border-bottom: 3px solid transparent;
-  }
-  nav a:hover {
-    border-color: white;
-  }
-  footer p{
-    text-align: center;
-    color: #bbb;
-    margin: 40px auto;
-  } */
 
 .content {
   height: 100%;
   width: 100%;
   overflow: auto;
-  /* padding-right: 20px; */
 }
 
 .site-logo {
