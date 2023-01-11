@@ -68,15 +68,6 @@ const ProjectsPage = ({ data }) => {
                 </div>
               )}
             </>
-            // <div className={styles.projects__container} key={node.title}>
-            //     <hr />
-            //     <h2>{node.title}</h2>
-            //     <p>{node.description}</p>
-            //     <div className={styles.img__container}>
-            //       <GatsbyImage image={projectImage} alt={node.title}/>
-            //     </div>
-            //     <Link to={"/project/" + slug}><h4>View project</h4></Link>
-            // </div>
           );
         })}
       </section>

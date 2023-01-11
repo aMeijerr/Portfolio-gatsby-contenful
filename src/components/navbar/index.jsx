@@ -1,12 +1,11 @@
-import React from "react";
-import { useMediaQuery } from "react-responsive";
-import styled from "styled-components";
-import { NavLinks } from "./navLinks";
-import { DeviceSize } from "../responsive";
-import { MobileNavLinks } from "./mobileNavLinks";
-import { Link } from "gatsby";
-// import { graphql, useStaticQuery } from "gatsby";
-import Logo from "../../images/Logo3.png";
+import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+import styled from 'styled-components';
+import { NavLinks } from './navLinks';
+import { DeviceSize } from '../responsive';
+import { MobileNavLinks } from './mobileNavLinks';
+import { Link } from 'gatsby';
+import Logo from '../../images/Logo3.png';
 
 const NavbarContainer = styled.div`
   width: 100%;
@@ -29,20 +28,11 @@ const MiddleSection = styled.div`
 
 const RightSection = styled.div`
   display: flex;
+  height: 100%;
 `;
 
-const Navbar = (props) => {
-    // const data = useStaticQuery(graphql`
-    //     query SiteInfo {
-    //         site {
-    //             siteMetadata {
-    //                 title
-    //             }
-    //         }
-    //     }
-    // `)
-    // const { title } = data.site.siteMetadata;
-    const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
+const Navbar = () => {
+  const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
 
   return (
     <NavbarContainer>
@@ -51,14 +41,13 @@ const Navbar = (props) => {
           <img className="site-logo" src={Logo} alt="Site logo" />
         </Link>
       </LeftSection>
-      <MiddleSection>
-        {!isMobile && <NavLinks />}
-      </MiddleSection>
+      <MiddleSection></MiddleSection>
       <RightSection>
+        {!isMobile && <NavLinks />}
         {isMobile && <MobileNavLinks />}
       </RightSection>
     </NavbarContainer>
   );
-}
+};
 
 export default Navbar;
