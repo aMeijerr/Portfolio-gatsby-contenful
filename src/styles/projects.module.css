@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 2rem;
+  margin: 1rem 2rem;
 }
 
 .container__desktop {
@@ -41,6 +41,10 @@ p {
   align-items: center;
   margin: 2rem 0 2rem 0;
 }
+
+/* .project__link {
+  text-align: center;
+} */
 
 /* Temporary, remove? */
 .tech__navbar {
