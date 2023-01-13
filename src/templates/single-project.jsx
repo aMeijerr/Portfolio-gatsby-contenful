@@ -34,15 +34,6 @@ const SingleProjectPage = ({ data }) => {
           })}
         </ul>
 
-        {/* Utkast på techikoner, måste lägga in kategorier i Contentful som sedan loopas över
-          ungefär som bilderna. Behöver vara dynamiskt */}
-        {/* <div className={styles.tech}>
-            <h4>Tech:</h4>
-            <img src={Vue} alt="vue-icon" width="40" height="40"/>
-            <img src={HTML} alt="html-icon" width="40" height="40"/>
-            <img src={CSS} alt="css-icon" width="40" height="40"/>
-          </div> */}
-
         <p>{project.description}</p>
 
         {isMobile ? (

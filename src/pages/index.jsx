@@ -5,10 +5,9 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 const IndexPage = () => {
   const data = useStaticQuery(LandingPageQuery);
-  const { title, text } = data.allContentfulBackgroundImage.edges[0].node;
+  const { title, text } = data.allContentfulLandingPage.edges[0].node;
 
-  const bgImage =
-    data.allContentfulBackgroundImage.edges[0].node.bgImage.file.url;
+  const bgImage = data.allContentfulLandingPage.edges[0].node.bgImage.file.url;
   return (
     <section
       className={styles.landing}
@@ -37,7 +36,7 @@ export const Head = () => <title>Alex Meijer Web Development</title>;
 
 export const LandingPageQuery = graphql`
   query LandingPageQuery {
-    allContentfulBackgroundImage {
+    allContentfulLandingPage {
       edges {
         node {
           title
