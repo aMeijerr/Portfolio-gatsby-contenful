@@ -4,9 +4,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* background-image: url('../images/hero.svg');
-    background-size: contain;
-    background-repeat: no-repeat; */
   }
 
 .landing__name {
@@ -16,10 +13,6 @@
 .landing__content {
     text-align: center;
   }
-
-/* .landing h2 {
-    font-size: 4em;
-  } */
 
 .landing h3 {
     font-size: 3em;

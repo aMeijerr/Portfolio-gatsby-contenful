@@ -12,9 +12,10 @@ const TechProjectsPage = ({ data }) => {
         {/* Skapar en lista med alla tekniker som finns i projekt */}
         {data.allContentfulProjects.edges.forEach((edge) => {
           const projectTech = edge.node.tech.title;
-          TechList.push(projectTech);
+          if (!TechList.includes(projectTech)) {
+            TechList.push(projectTech);
+          }
         })}
-        {console.log(TechList[0])}
 
         {/* Skriver ut alla tekniker som finns i projektet som en lista */}
         <nav className={styles.tech__navbar}>

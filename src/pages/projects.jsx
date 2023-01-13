@@ -15,7 +15,9 @@ const ProjectsPage = ({ data }) => {
         {/* Skapar en lista med alla tekniker som finns i projekt */}
         {data.allContentfulProjects.edges.forEach((edge) => {
           const projectTech = edge.node.tech.title;
-          TechList.push(projectTech);
+          if (!TechList.includes(projectTech)) {
+            TechList.push(projectTech);
+          }
         })}
 
         {/* Skriver ut alla tekniker som finns i projektet som en lista */}
@@ -92,7 +94,7 @@ export const ProjectsPageQuery = graphql`
           projectImages {
             gatsbyImageData(
               height: 350
-              width: 450
+              width: 420
               resizingBehavior: PAD
               placeholder: BLURRED
               layout: FIXED
