@@ -1,10 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "gatsby";
-import facebook from "../../assets/Facebook.svg";
-import instagram from "../../assets/Instagram.svg";
-import github from "../../assets/Github.svg";
-import linkedin from "../../assets/LinkedIn.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 
 const FooterLinksContainer = styled.div`
   width: 100%;
@@ -33,29 +29,50 @@ const LinkItem = styled.li`
   border-bottom: 2px solid transparent;
   transition: all 220ms ease-in-out;
   &:hover {
-    border-bottom: 4px solid #FB8500;
+    border-bottom: 4px solid #fb8500;
   }
 `;
-  
+
 const Footer = () => {
-    return (
-        <FooterLinksContainer>
-          <LinksWrapper>
-            <LinkItem>
-              <Link to="https://dif.se/"><img src={facebook} alt="facebook-link" width="40" height="40"/></Link>
+  const data = useStaticQuery(FooterLinksQuery);
+
+  return (
+    <FooterLinksContainer>
+      <LinksWrapper>
+        {data.allContentfulFooterLinks.edges.map((edge) => {
+          const iconUrl = edge.node.icon.file.url;
+          return (
+            <LinkItem key={iconUrl}>
+              <Link to="https://dif.se/">
+                <img
+                  src={`${iconUrl}`}
+                  alt="tech-icon"
+                  width="40"
+                  height="40"
+                />
+              </Link>
             </LinkItem>
-            <LinkItem>
-              <Link to="https://dif.se/"><img src={instagram} alt="instagram-link" width="40" height="40"/></Link>
-            </LinkItem>
-            <LinkItem>
-              <Link to="https://dif.se/"><img src={github} alt="github-link" width="40" height="40"/></Link>
-            </LinkItem>
-            <LinkItem>
-              <Link to="https://dif.se/"><img src={linkedin} alt="linkedin-link" width="40" height="40"/></Link>
-            </LinkItem>
-          </LinksWrapper>
-        </FooterLinksContainer>
-      );
-    }
+          );
+        })}
+      </LinksWrapper>
+    </FooterLinksContainer>
+  );
+};
 
 export default Footer;
+
+export const FooterLinksQuery = graphql`
+  query FooterLinksQuery {
+    allContentfulFooterLinks {
+      edges {
+        node {
+          icon {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`;
