@@ -45,6 +45,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
 }
@@ -66,4 +67,8 @@
   margin-top: 20px;
   font-size: 0.8rem;
   font-weight: 500;
+}
+
+.mobile__link {
+  margin-bottom: 2rem;
 }

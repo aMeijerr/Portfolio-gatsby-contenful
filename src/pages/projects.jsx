@@ -51,7 +51,7 @@ const ProjectsPage = ({ data }) => {
                   <div className={styles.img__container}>
                     <GatsbyImage image={projectImage} alt={node.title} />
                   </div>
-                  <Link to={'/project/' + slug}>
+                  <Link to={'/project/' + slug} className={styles.mobile__link}>
                     <h4>View project</h4>
                   </Link>
                 </div>
