@@ -17,7 +17,6 @@ const ProjectsPage = ({ data }) => {
           const projectTech = edge.node.tech.title;
           TechList.push(projectTech);
         })}
-        {console.log(TechList[0])}
 
         {/* Skriver ut alla tekniker som finns i projektet som en lista */}
         <nav className={styles.tech__navbar}>
@@ -45,7 +44,7 @@ const ProjectsPage = ({ data }) => {
                 <div className={styles.projects__container} key={node.title}>
                   <hr />
                   <h2>{node.title}</h2>
-                  <p>{node.tech.title}</p>
+                  <p className={styles.tech__stack}>{node.tech.title}</p>
                   <p>{node.description}</p>
                   <div className={styles.img__container}>
                     <GatsbyImage image={projectImage} alt={node.title} />
@@ -63,7 +62,7 @@ const ProjectsPage = ({ data }) => {
                     </div>
                     <div className={styles.content__desktop}>
                       <h2>{node.title}</h2>
-                      <p>{node.tech.title}</p>
+                      <p className={styles.tech__stack}>{node.tech.title}</p>
                       <p>{node.description}</p>
                       <Link to={'/project/' + slug}>
                         <h4>View project</h4>
@@ -93,6 +92,7 @@ export const ProjectsPageQuery = graphql`
           projectImages {
             gatsbyImageData(
               height: 350
+              width: 450
               resizingBehavior: PAD
               placeholder: BLURRED
               layout: FIXED

@@ -4,22 +4,9 @@ import * as styles from '../styles/home.module.css';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query ImageQuery {
-      allContentfulBackgroundImage {
-        edges {
-          node {
-            bgImage {
-              file {
-                url
-                fileName
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+  const data = useStaticQuery(LandingPageQuery);
+  const { title, text } = data.allContentfulBackgroundImage.edges[0].node;
+
   const bgImage =
     data.allContentfulBackgroundImage.edges[0].node.bgImage.file.url;
   return (
@@ -33,9 +20,9 @@ const IndexPage = () => {
     >
       <div className={styles.landing__content}>
         <h2>
-          I'm <span className={styles.landing__name}>Alex Meijer</span>
+          I'm <span className={styles.landing__name}>{title}</span>
         </h2>
-        <h3>Student in Front-end development</h3>
+        <h3>{text}</h3>
         <Link className={styles.btn} to="/projects">
           Show projects
         </Link>
@@ -48,16 +35,21 @@ export default IndexPage;
 
 export const Head = () => <title>Alex Meijer Web Development</title>;
 
-// export const HeroImageQuery = graphql`
-// query ImageQuery {
-//   allContentfulBackgroundImage {
-//     nodes {
-//       bgImage {
-//         file {
-//           url
-//         }
-//       }
-//     }
-//   }
-// }
-// `
+export const LandingPageQuery = graphql`
+  query LandingPageQuery {
+    allContentfulBackgroundImage {
+      edges {
+        node {
+          title
+          text
+          bgImage {
+            file {
+              url
+              fileName
+            }
+          }
+        }
+      }
+    }
+  }
+`;

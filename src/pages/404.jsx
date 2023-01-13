@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as styles from '../styles/404.module.css';
+import { Link } from 'gatsby';
 
 const NotFoundPage = () => {
   const query = useStaticQuery(graphql`
@@ -36,6 +37,9 @@ const NotFoundPage = () => {
         <div className={styles.text}>
           <h2>{data.title}</h2>
           <h3>{data.text}</h3>
+          <Link to="/" className={styles.btn}>
+            Return home
+          </Link>
         </div>
       </section>
     </Layout>
