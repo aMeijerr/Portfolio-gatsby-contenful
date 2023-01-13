@@ -93,8 +93,8 @@ export const ProjectsPageQuery = graphql`
           description
           projectImages {
             gatsbyImageData(
-              height: 350
-              width: 420
+              height: 300
+              width: 330
               resizingBehavior: PAD
               placeholder: BLURRED
               layout: FIXED
