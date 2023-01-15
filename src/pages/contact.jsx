@@ -39,6 +39,8 @@ const ContactPage = ({ data }) => {
 
 export default ContactPage;
 
+export const Head = () => <title>Alex Meijer Web Development</title>;
+
 export const ContactQuery = graphql`
   query ContactQuery {
     allContentfulContact {

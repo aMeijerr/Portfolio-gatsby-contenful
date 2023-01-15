@@ -48,6 +48,8 @@ export default function AboutPage() {
   );
 }
 
+export const Head = () => <title>Alex Meijer Web Development</title>;
+
 const AboutQuery = graphql`
   query MyQuery {
     allContentfulAboutMe {

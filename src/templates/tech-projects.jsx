@@ -36,8 +36,10 @@ const TechProjectsPage = ({ data }) => {
           return (
             <div className={styles.projects__container} key={node.title}>
               <hr />
+              {/* <div className={styles.title__container}> */}
               <h2>{node.title}</h2>
               <p className={styles.tech__stack}>{node.tech.title}</p>
+              {/* </div> */}
               <div className={styles.img__container}>
                 <GatsbyImage image={projectImage} alt={node.title} />
               </div>
@@ -65,7 +67,7 @@ export const query = graphql`
           projectImages {
             title
             gatsbyImageData(
-              height: 300
+              height: 280
               width: 330
               resizingBehavior: PAD
               placeholder: BLURRED

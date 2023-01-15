@@ -18,9 +18,7 @@ const IndexPage = () => {
       }}
     >
       <div className={styles.landing__content}>
-        <h2>
-          I'm <span className={styles.landing__name}>{title}</span>
-        </h2>
+        <h2 className={styles.landing__name}>{title}</h2>
         <h3>{text}</h3>
         <Link className={styles.btn} to="/projects">
           Show projects

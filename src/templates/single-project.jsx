@@ -23,16 +23,15 @@ const SingleProjectPage = ({ data }) => {
 
   return (
     <Layout>
-      <main className={styles.single__container}>
+      <main className={styles.single__container} key={project.title}>
         <h2>{project.title}</h2>
-
         {/* //Rendrerar ut tech-ikoner dynamiskt efter contenfuls techstack */}
-        <ul>
+        <div>
           {project.techStack.map((tech) => {
             return <p className={styles.tech__stack}>{tech}</p>;
             // return <img src={require(`../assets/${tech}.svg`).default} alt="tech-icon" width="40" height="40"/>
           })}
-        </ul>
+        </div>
 
         <p>{project.description}</p>
 
@@ -71,7 +70,7 @@ export const query = graphql`
       projectImages {
         title
         gatsbyImageData(
-          height: 300
+          height: 280
           width: 330
           resizingBehavior: PAD
           placeholder: BLURRED

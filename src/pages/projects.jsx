@@ -21,18 +21,33 @@ const ProjectsPage = ({ data }) => {
         })}
 
         {/* Skriver ut alla tekniker som finns i projektet som en lista */}
-        <nav className={styles.tech__navbar}>
-          <Link to={'/projects'}>
-            <h3>All</h3>
-          </Link>
-          {TechList.map((tech) => {
-            return (
-              <Link to={'/projects/category/' + tech}>
-                <h3>{tech}</h3>
-              </Link>
-            );
-          })}
-        </nav>
+        {isMobile ? (
+          <nav className={styles.tech__navbar}>
+            <Link to={'/projects'}>
+              <p>All</p>
+            </Link>
+            {TechList.map((tech) => {
+              return (
+                <Link to={'/projects/category/' + tech}>
+                  <p>{tech}</p>
+                </Link>
+              );
+            })}
+          </nav>
+        ) : (
+          <nav className={styles.tech__navbar}>
+            <Link to={'/projects'}>
+              <h3>All</h3>
+            </Link>
+            {TechList.map((tech) => {
+              return (
+                <Link to={'/projects/category/' + tech}>
+                  <h3>{tech}</h3>
+                </Link>
+              );
+            })}
+          </nav>
+        )}
 
         {/* Skriver ut alla projekt */}
         {data.allContentfulProjects.edges.map(({ node }) => {
@@ -46,7 +61,7 @@ const ProjectsPage = ({ data }) => {
                 <div className={styles.projects__container} key={node.title}>
                   <hr />
                   <h2>{node.title}</h2>
-                  <p className={styles.tech__stack}>{node.tech.title}</p>
+                  {/* <p className={styles.tech__stack}>{node.tech.title}</p> */}
                   <p>{node.description}</p>
                   <div className={styles.img__container}>
                     <GatsbyImage image={projectImage} alt={node.title} />
@@ -60,7 +75,11 @@ const ProjectsPage = ({ data }) => {
                   <hr />
                   <div className={styles.container__desktop}>
                     <div className={styles.img__container}>
-                      <GatsbyImage image={projectImage} alt={node.title} />
+                      <GatsbyImage
+                        image={projectImage}
+                        alt={node.title}
+                        imgStyle={{ objectFit: 'contain' }}
+                      />
                     </div>
                     <div className={styles.content__desktop}>
                       <h2>{node.title}</h2>
@@ -83,6 +102,8 @@ const ProjectsPage = ({ data }) => {
 
 export default ProjectsPage;
 
+export const Head = () => <title>Alex Meijer Web Development</title>;
+
 export const ProjectsPageQuery = graphql`
   query ProjectsQuery {
     allContentfulProjects {
@@ -93,7 +114,7 @@ export const ProjectsPageQuery = graphql`
           description
           projectImages {
             gatsbyImageData(
-              height: 300
+              height: 280
               width: 330
               resizingBehavior: PAD
               placeholder: BLURRED
@@ -111,13 +132,3 @@ export const ProjectsPageQuery = graphql`
     }
   }
 `;
-
-// <Link to={'/projects/category/' + TechList[0]}>
-//   <h3>Javascript</h3>
-// </Link>
-// <Link to={'/projects/category/' + TechList[1]}>
-//   <h3>Python</h3>
-// </Link>
-// <Link to={'/projects/category/' + TechList[2]}>
-//   <h3>Vue</h3>
-// </Link>
