@@ -8,7 +8,8 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Alex Meijer Web Development`,
-    siteUrl: `https://www.yourdomain.tld`,
+    description: `Project portfolio for Alex Meijer, a web developer based in Stockholm, Sweden.`,
+    siteUrl: `https://meijer.gatsbyjs.io/`,
   },
   plugins: [
     {

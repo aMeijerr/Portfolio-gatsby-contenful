@@ -5,6 +5,7 @@ import * as styles from '../styles/projects.module.css';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useMediaQuery } from 'react-responsive';
 import { DeviceSize } from '../components/responsive';
+import { SEO } from '../components/seo';
 
 const ProjectsPage = ({ data }) => {
   const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
@@ -102,7 +103,7 @@ const ProjectsPage = ({ data }) => {
 
 export default ProjectsPage;
 
-export const Head = () => <title>Alex Meijer Web Development</title>;
+export const Head = () => <SEO title="Projects page" />;
 
 export const ProjectsPageQuery = graphql`
   query ProjectsQuery {

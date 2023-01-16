@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import * as styles from '../styles/home.module.css';
 import { useStaticQuery, graphql } from 'gatsby';
+import { SEO } from '../components/seo';
 
 const IndexPage = () => {
   const data = useStaticQuery(LandingPageQuery);
@@ -29,7 +30,7 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => <title>Alex Meijer Web Development</title>;
+export const Head = () => <SEO />;
 
 export const LandingPageQuery = graphql`
   query LandingPageQuery {

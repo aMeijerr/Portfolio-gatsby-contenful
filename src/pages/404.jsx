@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as styles from '../styles/404.module.css';
 import { Link } from 'gatsby';
+import { SEO } from '../components/seo';
 
 const NotFoundPage = () => {
   const query = useStaticQuery(graphql`
@@ -48,4 +49,4 @@ const NotFoundPage = () => {
 
 export default NotFoundPage;
 
-export const Head = () => <title>Page Not found</title>;
+export const Head = () => <SEO title="Page not found" />;

@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import { graphql, Link } from 'gatsby';
 import * as styles from '../styles/projects.module.css';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { SEO } from '../components/seo';
 
 const TechProjectsPage = ({ data }) => {
   let TechList = [];
@@ -55,6 +56,8 @@ const TechProjectsPage = ({ data }) => {
 };
 
 export default TechProjectsPage;
+
+export const Head = () => <SEO title="Category page" />;
 
 export const query = graphql`
   query TechProjectPageQuery($techSlug: String) {
