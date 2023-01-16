@@ -8,6 +8,10 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { DeviceSize } from '../components/responsive';
 import { useMediaQuery } from 'react-responsive';
 
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 const options = {
   renderMark: {
     [MARKS.BOLD]: (text) => <strong>{text}</strong>,
@@ -15,6 +19,15 @@ const options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
   },
+};
+
+const settings = {
+  dots: true,
+  infinite: true,
+  autoplay: true,
+  adaptiveHeight: true,
+  pauseOnHover: true,
+  autoplaySpeed: 4000,
 };
 
 const SingleProjectPage = ({ data }) => {
@@ -36,12 +49,16 @@ const SingleProjectPage = ({ data }) => {
         <p>{project.description}</p>
 
         {isMobile ? (
-          <div className={styles.img__mobile}>
+          <Slider
+            {...settings}
+            className={styles.img__mobile}
+            style={{ width: 320 }}
+          >
             {project.projectImages.map((img, i) => {
               const image = getImage(img);
               return <GatsbyImage image={image} alt={project.title} key={i} />;
             })}
-          </div>
+          </Slider>
         ) : (
           <div className={styles.img__container}>
             {project.projectImages.map((img, i) => {
