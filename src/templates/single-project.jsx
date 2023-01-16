@@ -52,7 +52,7 @@ const SingleProjectPage = ({ data }) => {
           <Slider
             {...settings}
             className={styles.img__mobile}
-            style={{ width: 320 }}
+            style={{ width: 300 }}
           >
             {project.projectImages.map((img, i) => {
               const image = getImage(img);
