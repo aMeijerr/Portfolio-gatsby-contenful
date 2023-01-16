@@ -13,8 +13,7 @@ const IndexPage = () => {
       className={styles.landing}
       style={{
         backgroundImage: `url(${bgImage})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'contain',
+        backgroundSize: 100 + '%',
       }}
     >
       <div className={styles.landing__content}>
