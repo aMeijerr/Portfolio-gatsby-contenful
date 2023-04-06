@@ -16,7 +16,6 @@
   padding: 1rem;
   margin: auto 2rem auto 2rem;
   max-width: 50%;
-  /* text-align: center; */
 }
 
 .projects__container h4 {
@@ -36,11 +35,6 @@
   margin: 2rem 0 2rem 0;
 }
 
-/* .project__link {
-  text-align: center;
-} */
-
-/* Temporary, remove? */
 .tech__navbar {
   display: flex;
   flex-direction: row;

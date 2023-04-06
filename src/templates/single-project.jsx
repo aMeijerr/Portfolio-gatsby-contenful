@@ -43,7 +43,6 @@ const SingleProjectPage = ({ data }) => {
         <div>
           {project.techStack.map((tech) => {
             return <p className={styles.tech__stack}>{tech}</p>;
-            // return <img src={require(`../assets/${tech}.svg`).default} alt="tech-icon" width="40" height="40"/>
           })}
         </div>
 
