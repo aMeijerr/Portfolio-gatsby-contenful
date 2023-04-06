@@ -49,6 +49,9 @@
 .tech__navbar p {
   color: #FB8500;
   font-weight: bold;
+  text-shadow: 3px 0px 7px rgba(81,67,21,0.8), 
+	  -3px 0px 7px rgba(81,67,21,0.8), 
+	  0px 4px 7px rgba(81,67,21,0.8);
 }
 
 .tech__navbar p:hover {
@@ -57,6 +60,9 @@
 
 .tech__navbar h3 {
   color: #FB8500;
+  text-shadow: 3px 0px 7px rgba(81,67,21,0.8), 
+	  -3px 0px 7px rgba(81,67,21,0.8), 
+	  0px 4px 7px rgba(81,67,21,0.8);
 }
 
 .tech__navbar h3:hover {

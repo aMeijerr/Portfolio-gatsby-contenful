@@ -42,7 +42,11 @@ const SingleProjectPage = ({ data }) => {
         {/* //Rendrerar ut tech-ikoner dynamiskt efter contenfuls techstack */}
         <div>
           {project.techStack.map((tech) => {
-            return <p className={styles.tech__stack}>{tech}</p>;
+            return (
+              <p className={styles.tech__stack} key={tech}>
+                {tech}
+              </p>
+            );
           })}
         </div>
 
