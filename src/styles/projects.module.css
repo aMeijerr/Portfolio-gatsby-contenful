@@ -21,6 +21,7 @@
 .projects__container h4 {
   font-size: 2rem;
   border-bottom: 4px solid transparent;
+  max-width: fit-content;
 }
 
 .projects__container h4:hover{
