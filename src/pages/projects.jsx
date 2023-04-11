@@ -50,8 +50,8 @@ const ProjectsPage = ({ data }) => {
           </nav>
         )}
 
-        {/* Skriver ut alla projekt */}
-        {data.allContentfulProjects.edges.map(({ node }) => {
+        {/* Skriver ut alla projekt, använder reverse för att skriva ut senaste projektet först*/}
+        {data.allContentfulProjects.edges.reverse().map(({ node }) => {
           const slug = node.slug;
           // Skapar variabel som endast visar den 3e bilden i projektet
           const projectImage = getImage(node.projectImages[2]);

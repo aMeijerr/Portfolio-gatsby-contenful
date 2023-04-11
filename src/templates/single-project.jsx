@@ -60,18 +60,34 @@ const SingleProjectPage = ({ data }) => {
           >
             {project.projectImages.map((img, i) => {
               const image = getImage(img);
-              return <GatsbyImage image={image} alt={project.title} key={i} />;
+              return (
+                <GatsbyImage
+                  image={image}
+                  alt={project.title}
+                  key={`${project.title}-${i}`}
+                />
+              );
             })}
           </Slider>
         ) : (
           <div className={styles.img__container}>
             {project.projectImages.map((img, i) => {
               const image = getImage(img);
-              return <GatsbyImage image={image} alt={project.title} key={i} />;
+              return (
+                <GatsbyImage
+                  image={image}
+                  alt={project.title}
+                  key={`${project.title}-${i}`}
+                />
+              );
             })}
           </div>
         )}
-        <h4>{renderRichText(project.link, options)}</h4>
+        {renderRichText(project.link, options).map((link) => (
+          <div className={styles.project_link}>
+            <h4>{link}</h4>
+          </div>
+        ))}
       </main>
     </Layout>
   );

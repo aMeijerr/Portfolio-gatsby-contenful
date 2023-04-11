@@ -61,3 +61,10 @@
     font-size: 0.5rem;
     font-weight: 500;
   }
+
+.project_link h4 p {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
