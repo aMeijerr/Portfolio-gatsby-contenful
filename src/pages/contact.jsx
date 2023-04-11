@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import * as styles from '../styles/contact.module.css';
 import { useMediaQuery } from 'react-responsive';
 import { DeviceSize } from '../components/responsive';
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 //kika på react-hook-form eller react-form som NPM-paket
 
@@ -40,7 +40,7 @@ const ContactPage = ({ data }) => {
 
 export default ContactPage;
 
-export const Head = () => <SEO title="Contact page" />;
+export const Head = () => <Seo title="Contact page" />;
 
 export const ContactQuery = graphql`
   query ContactQuery {

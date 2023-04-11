@@ -18,6 +18,10 @@
   max-width: 50%;
 }
 
+/* .projects__container p {
+  min-height: 100px;
+} */
+
 .projects__container h4 {
   font-size: 2rem;
   border-bottom: 4px solid transparent;
@@ -32,9 +36,15 @@
 /* check fix for flex-wrap responsiveness */
 .img__container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 2rem 0 2rem 0;
+}
+
+.img__container h2 {
+  margin: 1rem;
+  width: fit-content;
 }
 
 .tech__navbar {

@@ -40,16 +40,15 @@ const Footer = () => {
     <FooterLinksContainer>
       <LinksWrapper>
         {data.allContentfulFooterLinks.edges.map((edge) => {
-          const iconUrl = edge.node.icon.file.url;
+          const {
+            icon: {
+              file: { url: iconUrl },
+            },
+          } = edge.node;
           return (
             <LinkItem key={iconUrl}>
               <Link to="https://dif.se/">
-                <img
-                  src={`${iconUrl}`}
-                  alt="tech-icon"
-                  width="40"
-                  height="40"
-                />
+                <img src={iconUrl} alt="tech-icon" width="40" height="40" />
               </Link>
             </LinkItem>
           );

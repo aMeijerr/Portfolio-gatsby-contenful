@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { useStaticQuery } from 'gatsby';
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 const options = {
   renderMark: {
@@ -49,7 +49,7 @@ export default function AboutPage() {
   );
 }
 
-export const Head = () => <SEO title="About me" />;
+export const Head = () => <Seo title="About me" />;
 
 const AboutQuery = graphql`
   query MyQuery {

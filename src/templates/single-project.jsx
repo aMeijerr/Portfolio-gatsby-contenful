@@ -7,7 +7,7 @@ import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { DeviceSize } from '../components/responsive';
 import { useMediaQuery } from 'react-responsive';
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -95,7 +95,7 @@ const SingleProjectPage = ({ data }) => {
 
 export default SingleProjectPage;
 
-export const Head = () => <SEO title="Single project page" />;
+export const Head = () => <Seo title="Single project page" />;
 
 export const query = graphql`
   query SingleProjectPageQuery($slug: String) {
