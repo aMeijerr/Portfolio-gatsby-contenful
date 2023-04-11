@@ -6,45 +6,42 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Seo } from '../components/seo';
 
 const TechProjectsPage = ({ data }) => {
-  let TechList = [];
+  const { edges: projects } = data.allContentfulProjects;
+
+  const techList = projects
+    .map(({ node }) => node.tech.title)
+    .reduce((acc, curr) => {
+      return acc.includes(curr) ? acc : [...acc, curr];
+    }, []);
+
   return (
     <Layout>
       <section>
-        {/* Skapar en lista med alla tekniker som finns i projekt */}
-        {data.allContentfulProjects.edges.forEach((edge) => {
-          const projectTech = edge.node.tech.title;
-          if (!TechList.includes(projectTech)) {
-            TechList.push(projectTech);
-          }
-        })}
-
-        {/* Skriver ut alla tekniker som finns i projektet som en lista */}
         <nav className={styles.tech__navbar}>
-          <Link to={'/projects'}>
+          <Link to="/projects">
             <h3>All /</h3>
           </Link>
-          {TechList.map((tech) => {
+          {techList.map((tech) => {
             return (
-              <Link to={'/projects/category/' + tech}>
+              <Link key={tech} to={`/projects/category/${tech}`}>
                 <h3>{tech} /</h3>
               </Link>
             );
           })}
         </nav>
-        {data.allContentfulProjects.edges.map(({ node }) => {
-          const slug = node.slug;
-          const projectImage = getImage(node.projectImages[2]);
+
+        {projects.map(({ node }) => {
+          const { title, slug, projectImages, tech } = node;
+          const projectImage = getImage(projectImages[2]);
           return (
-            <div className={styles.projects__container} key={node.title}>
+            <div className={styles.projects__container} key={title}>
               <hr />
-              {/* <div className={styles.title__container}> */}
-              <h2>{node.title}</h2>
-              <p className={styles.tech__stack}>{node.tech.title}</p>
-              {/* </div> */}
+              <h2>{title}</h2>
+              <p className={styles.tech__stack}>{tech.title}</p>
               <div className={styles.img__container}>
-                <GatsbyImage image={projectImage} alt={node.title} />
+                <GatsbyImage image={projectImage} alt={title} />
               </div>
-              <Link to={'/project/' + slug}>
+              <Link to={`/project/${slug}`}>
                 <h4>View project</h4>
               </Link>
             </div>
