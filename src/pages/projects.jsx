@@ -38,12 +38,12 @@ const ProjectsPage = ({ data }) => {
         ) : (
           <nav className={styles.tech__navbar}>
             <Link to={'/projects'}>
-              <h3>All</h3>
+              <h3>All /</h3>
             </Link>
             {TechList.map((tech) => {
               return (
                 <Link to={'/projects/category/' + tech}>
-                  <h3>{tech}</h3>
+                  <h3>{tech} /</h3>
                 </Link>
               );
             })}
