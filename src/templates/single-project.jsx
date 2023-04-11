@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
@@ -13,41 +14,57 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const options = {
-  renderMark: {
-    [MARKS.BOLD]: (text) => <strong>{text}</strong>,
-  },
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
-  },
-};
-
-const settings = {
-  dots: true,
-  infinite: true,
-  autoplay: true,
-  adaptiveHeight: true,
-  pauseOnHover: true,
-  autoplaySpeed: 4000,
-};
-
 const SingleProjectPage = ({ data }) => {
+  const [settings] = useState({
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    adaptiveHeight: true,
+    pauseOnHover: true,
+    autoplaySpeed: 4000,
+  });
+
   const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
   const project = data.contentfulProjects;
+
+  const renderLink = () =>
+    renderRichText(project.link, {
+      renderMark: {
+        [MARKS.BOLD]: (text) => <strong>{text}</strong>,
+      },
+      renderNode: {
+        [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+      },
+    }).map((link) => (
+      <div className={styles.project_link}>
+        <h4>{link}</h4>
+      </div>
+    ));
+
+  const renderProjectImages = () =>
+    project.projectImages.map((img, i) => {
+      const image = getImage(img);
+
+      return (
+        <GatsbyImage
+          image={image}
+          alt={project.title}
+          key={`${project.title}-${i}`}
+        />
+      );
+    });
 
   return (
     <Layout>
       <main className={styles.single__container} key={project.title}>
         <h2>{project.title}</h2>
-        {/* //Rendrerar ut tech-ikoner dynamiskt efter contenfuls techstack */}
+        {/* Renders tech icons dynamically */}
         <div>
-          {project.techStack.map((tech) => {
-            return (
-              <p className={styles.tech__stack} key={tech}>
-                {tech}
-              </p>
-            );
-          })}
+          {project.techStack.map((tech) => (
+            <p className={styles.tech__stack} key={tech}>
+              {tech}
+            </p>
+          ))}
         </div>
 
         <p>{project.description}</p>
@@ -58,36 +75,12 @@ const SingleProjectPage = ({ data }) => {
             className={styles.img__mobile}
             style={{ width: 300 }}
           >
-            {project.projectImages.map((img, i) => {
-              const image = getImage(img);
-              return (
-                <GatsbyImage
-                  image={image}
-                  alt={project.title}
-                  key={`${project.title}-${i}`}
-                />
-              );
-            })}
+            {renderProjectImages()}
           </Slider>
         ) : (
-          <div className={styles.img__container}>
-            {project.projectImages.map((img, i) => {
-              const image = getImage(img);
-              return (
-                <GatsbyImage
-                  image={image}
-                  alt={project.title}
-                  key={`${project.title}-${i}`}
-                />
-              );
-            })}
-          </div>
+          <div className={styles.img__container}>{renderProjectImages()}</div>
         )}
-        {renderRichText(project.link, options).map((link) => (
-          <div className={styles.project_link}>
-            <h4>{link}</h4>
-          </div>
-        ))}
+        {renderLink()}
       </main>
     </Layout>
   );
