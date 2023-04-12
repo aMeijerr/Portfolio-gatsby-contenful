@@ -11,30 +11,33 @@ import { Seo } from '../components/seo';
 const ContactPage = ({ data }) => {
   const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
 
+  //Använder react.fragment istället för <>, detta gör att det inte commitas till DOM
   return (
-    <Layout>
-      <section className={styles.contact}>
-        {data.allContentfulContact.edges.map(({ node }) => {
-          return (
-            <>
-              {isMobile ? (
-                <div className={styles.contact__content}>
-                  <h1>{node.title}</h1>
-                  <p>{node.description}</p>
-                  <h1>{node.email}</h1>
-                </div>
-              ) : (
-                <div className={styles.contact__content}>
-                  <h2>{node.title}</h2>
-                  <p>{node.description}</p>
-                  <h2>{node.email}</h2>
-                </div>
-              )}
-            </>
-          );
-        })}
-      </section>
-    </Layout>
+    <React.Fragment>
+      <Layout>
+        <section className={styles.contact}>
+          {data.allContentfulContact.edges.map(({ node }) => {
+            return (
+              <div className={styles.contact__content}>
+                {isMobile ? (
+                  <>
+                    <h1>{node.title}</h1>
+                    <p>{node.description}</p>
+                    <h1>{node.email}</h1>
+                  </>
+                ) : (
+                  <>
+                    <h2>{node.title}</h2>
+                    <p>{node.description}</p>
+                    <h2>{node.email}</h2>
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </section>
+      </Layout>
+    </React.Fragment>
   );
 };
 
