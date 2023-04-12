@@ -3,47 +3,44 @@ import Layout from '../components/Layout';
 import { graphql } from 'gatsby';
 import * as styles from '../styles/about.module.css';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { useStaticQuery } from 'gatsby';
 import { Seo } from '../components/seo';
 
 const options = {
   renderMark: {
-    [MARKS.BOLD]: (text) => <strong>{text}</strong>,
+    bold: (text) => <strong>{text}</strong>,
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+    paragraph: (node, children) => <p>{children}</p>,
   },
 };
 
-export default function AboutPage() {
-  const data = useStaticQuery(AboutQuery);
-  const { title, description, education, experience } =
-    data.allContentfulAboutMe.edges[0].node;
-  const profileImage = getImage(
-    data.allContentfulAboutMe.edges[0].node.profileImage
-  );
+export default function AboutMePage() {
+  const { allContentfulAboutMe } = useStaticQuery(query);
+
+  const { title, description, education, experience, profileImage } =
+    allContentfulAboutMe.edges[0].node;
+
+  const image = getImage(profileImage);
   return (
     <Layout>
       <section>
-        {data.allContentfulAboutMe.edges.map(({ node }) => {
-          return (
-            <div className={styles.about__container} key={node.title}>
-              <h2>{title}</h2>
-              <hr />
-              <h1>Alex Meijer</h1>
-              <article className={styles.profile__info}>
-                <GatsbyImage image={profileImage} alt={node.title} />
-                <p>{description}</p>
-              </article>
-              <section className={styles.education}>
-                <span>{renderRichText(education, options)}</span>
-                <span>{renderRichText(experience, options)}</span>
-              </section>
-            </div>
-          );
-        })}
+        {allContentfulAboutMe.edges.map(({ node }) => (
+          <div className={styles.about__container} key={node.title}>
+            <h2>{title}</h2>
+            <hr />
+            <h1>Alex Meijer</h1>
+            <article className={styles.profile__info}>
+              <GatsbyImage image={image} alt={title} />
+              <p>{description}</p>
+            </article>
+            <section className={styles.education}>
+              <span>{renderRichText(education, options)}</span>
+              <span>{renderRichText(experience, options)}</span>
+            </section>
+          </div>
+        ))}
       </section>
     </Layout>
   );
@@ -51,8 +48,8 @@ export default function AboutPage() {
 
 export const Head = () => <Seo title="About me" />;
 
-const AboutQuery = graphql`
-  query MyQuery {
+const query = graphql`
+  query {
     allContentfulAboutMe {
       edges {
         node {
