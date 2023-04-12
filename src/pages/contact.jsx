@@ -18,7 +18,7 @@ const ContactPage = ({ data }) => {
         <section className={styles.contact}>
           {data.allContentfulContact.edges.map(({ node }) => {
             return (
-              <div className={styles.contact__content}>
+              <div className={styles.contact__content} key={node.title}>
                 {isMobile ? (
                   <>
                     <h1>{node.title}</h1>
