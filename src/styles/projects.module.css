@@ -94,7 +94,9 @@
 .tech__exp {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
+
 
 .mobile__link {
   margin: 1rem;
