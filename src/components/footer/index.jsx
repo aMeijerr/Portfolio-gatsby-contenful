@@ -47,7 +47,7 @@ const Footer = () => {
           } = edge.node;
           return (
             <LinkItem key={iconUrl}>
-              <Link to="https://dif.se/">
+              <Link to="https://github.com/aMeijerr">
                 <img src={iconUrl} alt="tech-icon" width="40" height="40" />
               </Link>
             </LinkItem>

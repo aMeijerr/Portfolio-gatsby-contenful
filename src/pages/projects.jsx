@@ -43,7 +43,7 @@ const ProjectsPage = ({ data }) => {
           </nav>
         )}
 
-        {data.allContentfulProjects.edges.reverse().map(({ node }) => {
+        {data.allContentfulProjects.edges.map(({ node }) => {
           const slug = node.slug;
           const projectImage = getImage(node.projectImages[2]);
 
@@ -72,7 +72,12 @@ const ProjectsPage = ({ data }) => {
                     />
                   </div>
                   <div className={styles.content__desktop}>
-                    <p className={styles.tech__stack}>{node.tech.title}</p>
+                    <section className={styles.tech__exp}>
+                      <p className={styles.tech__stack}>{node.tech.title}</p>
+                      <p>
+                        Exp: <b>{node.experience}</b>
+                      </p>
+                    </section>
                     <p>{node.description}</p>
                     <Link to={`/project/${slug}`}>
                       <h4>View project</h4>
@@ -115,6 +120,7 @@ export const ProjectsPageQuery = graphql`
           tech {
             title
           }
+          experience
         }
       }
     }
