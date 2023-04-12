@@ -8,7 +8,7 @@
 
 .container__desktop {
   display: grid;
-  width: 100%;
+  width: 80%;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -17,10 +17,6 @@
   margin: auto 2rem auto 2rem;
   max-width: 50%;
 }
-
-/* .projects__container p {
-  min-height: 100px;
-} */
 
 .projects__container h4 {
   font-size: 2rem;
@@ -37,14 +33,11 @@
 .img__container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin: 2rem 0 2rem 0;
 }
 
 .img__container h2 {
-  margin: 1rem;
-  width: fit-content;
+  margin: 1rem 0 1rem 0;
 }
 
 .tech__navbar {
