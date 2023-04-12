@@ -5,17 +5,39 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Seo } from '../components/seo';
 
 const IndexPage = () => {
-  const data = useStaticQuery(LandingPageQuery);
-  const { title, text } = data.allContentfulLandingPage.edges[0].node;
+  const data = useStaticQuery(graphql`
+    query LandingPageQuery {
+      allContentfulLandingPage {
+        edges {
+          node {
+            title
+            text
+            bgImage {
+              file {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
 
-  const bgImage = data.allContentfulLandingPage.edges[0].node.bgImage.file.url;
+  const {
+    title,
+    text,
+    bgImage: {
+      file: { url: bgImageUrl },
+    },
+  } = data.allContentfulLandingPage.edges[0].node;
+
   return (
     <section
       className={styles.landing}
       style={{
-        backgroundImage: `url(${bgImage})`,
+        backgroundImage: `url(${bgImageUrl})`,
         backgroundRepeat: 'no-repeat',
-        backgroundSize: 100 + '%',
+        backgroundSize: '100%',
       }}
     >
       <div className={styles.landing__content}>
@@ -32,22 +54,3 @@ const IndexPage = () => {
 export default IndexPage;
 
 export const Head = () => <Seo />;
-
-export const LandingPageQuery = graphql`
-  query LandingPageQuery {
-    allContentfulLandingPage {
-      edges {
-        node {
-          title
-          text
-          bgImage {
-            file {
-              url
-              fileName
-            }
-          }
-        }
-      }
-    }
-  }
-`;
