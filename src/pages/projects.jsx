@@ -53,6 +53,12 @@ const ProjectsPage = ({ data }) => {
               {isMobile ? (
                 <>
                   <h2>{node.title}</h2>
+                  <section className={styles.tech__exp}>
+                    <p className={styles.tech__stack}>{node.tech.title}</p>
+                    <p>
+                      Exp: <b>{node.experience}</b>
+                    </p>
+                  </section>
                   <p>{node.description}</p>
                   <div className={styles.img__container}>
                     <GatsbyImage image={projectImage} alt={node.title} />
